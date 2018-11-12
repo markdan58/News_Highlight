@@ -1,34 +1,21 @@
-<!DOCTYPE html>
-<html>
+{% extends 'base.html'%}
 
-<head>
-    <meta charset="utf-8">
-    {% if title %}
-    <title> {{ title }}</title>
-    {% else %}
-    <title> Welcome to the best news Review website </title>
-    {% endif %}
-</head>
-
-<body>
-    <div class=container>
-        <!-- Entertainment news section  -->
-        <h3> Entertainment News</h3>
-        <ul>
-            {% for entertainment_news in entertain %}
-            <p>Title:{{ entertainment_news.title}}</p>
-            <p>Author: {{ entertainment_news.author}}</p>
-            <p>source: {{entertainment_news.source['name']}}</p>
-            <p>Description: {{entertainment_news.description}}</p>
-            <a href="{{entertainment_news.url}}">Read More</a>
-            <img src="{{entertainment_news.urlToImage}}" alt="">
-            <p>Time: {{entertainment_news.publishedAt}}</p>
-            <p>Content: {{entertainment_news.Content}}</p>
-
-            {% endfor %}
-        </ul>
+{%block content%}
+<div class=container>
+    <!-- Entertainment news section  -->
+    <div class="jumbotron">
+        <h1 class="text-center"> NEWS ARTICLES</h1>
     </div>
+    {% for entertainment_news in entertain %}
+    <h2 class="text-primary">Title:{{ entertainment_news.title}}</h2>
+    <p>Author: {{ entertainment_news.author}}</p>
+    <p>source: {{entertainment_news.source['name']}}</p>
+    <p>Description: {{entertainment_news.description}}</p>
+    <a href="{{entertainment_news.url}}"class="btn btn-info">Read More</a>
+    <img class="img-responsive" src="{{entertainment_news.urlToImage}}" alt="">
+    <p>Time: {{entertainment_news.publishedAt}}</p>
+    <p>Content: {{entertainment_news.Content}}</p>
 
-</body>
-
-</html>
+    {% endfor %}
+</div>
+{%endblock%}

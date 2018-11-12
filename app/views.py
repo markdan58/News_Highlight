@@ -20,7 +20,7 @@ def index():
 
 @app.route('/')
 def articles():
-    Getting news source
+    # Getting news source
     entertainment_news = get_news('entertain')
     title = 'Home - Welcome to The best news Review Website Online'
     return render_template('articles.html', title = title,entertain = entertainment_news)
