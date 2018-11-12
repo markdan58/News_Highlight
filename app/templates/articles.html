@@ -1,0 +1,27 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    {% if title %}
+    <title> {{ title }}</title>
+    {% else %}
+    <title> Welcome to the best news Review website </title>
+    {% endif %}
+</head>
+
+<body>
+    <!-- Entertainment news section  -->
+    <h3> News Articles </h3>
+    <ul>
+        {% for entertainment_news in entertain %}
+        <p>source: {{entertainment_news.source['name']}}</p>
+        <p>category: {{entertainment_news.category}}</p>
+        <p>country: {{entertainment_news.country}}</p>
+        <p>language: {{entertainment_news.language}}</p>
+
+        {% endfor %}
+    </ul>
+
+</body>
+
+</html>
